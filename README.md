@@ -1,8 +1,21 @@
 # Forfettino
 
+[![Test](https://github.com/Luke2986/forfettino-public/actions/workflows/test.yml/badge.svg)](https://github.com/Luke2986/forfettino-public/actions/workflows/test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-Postgres%20%2B%20Auth-3ECF8E?logo=supabase&logoColor=white)
+
 Gestionale online per professionisti e freelance in **Regime Forfettario** (L. 190/2014).
 
 > Snapshot pubblico del codice sorgente, rilasciato con licenza MIT a scopo di portfolio e community. Il prodotto live gira su un repository separato non pubblico; questa copia non riceve gli aggiornamenti automaticamente.
+
+## Perché questo progetto
+
+Il regime forfettario ha regole non banali — gestioni INPS diverse, soglia 85.000€, acconti e saldi che si incastrano tra un anno fiscale e l'altro, aliquote agevolate con scadenze. Tanti liberi professionisti le gestiscono a mano o con fogli Excel improvvisati, con margine d'errore reale.
+
+Forfettino nasce per portare zero approssimazione nei calcoli (parametri sempre dalle circolari ufficiali, mai stimati) dentro un prodotto usabile. Questo repo pubblico esiste per mostrare come è costruito il motore di calcolo — vedi [ARCHITECTURE.md](ARCHITECTURE.md) — a chi vuole studiarlo, riusarlo, o imparare da un'app fiscale reale scritta in TypeScript.
 
 ## Funzionalità
 
@@ -58,3 +71,9 @@ npm run build
 ```sh
 npm test
 ```
+
+## Altro
+
+- [ARCHITECTURE.md](ARCHITECTURE.md) — decisioni tecniche e struttura del codice
+- [CONTRIBUTING.md](CONTRIBUTING.md) — come contribuire
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
