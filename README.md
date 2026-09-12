@@ -24,6 +24,14 @@ Gestionale online per professionisti e freelance in **Regime Forfettario** (L. 1
 - **Backend**: Supabase (Auth, Database, Edge Functions)
 - **Payments**: Stripe
 
+## Nota su Lovable, DB e deploy
+
+Il prodotto live è costruito e ospitato su [Lovable](https://lovable.dev), che gestisce automaticamente il progetto Supabase collegato (DB, Auth, Edge Functions) e il deploy. **Questo repo pubblico non ha quel collegamento**: è codice sorgente puro, sganciato da Lovable.
+
+Per farlo girare devi portare tu:
+- **Database**: un tuo progetto Supabase (self-hosted o cloud). Schema e migrazioni sono in [`supabase/migrations`](supabase/migrations), le Edge Functions in [`supabase/functions`](supabase/functions) — vanno applicate/deployate con la [Supabase CLI](https://supabase.com/docs/guides/cli), non c'è automazione inclusa.
+- **Deploy**: nessun vincolo di hosting. [`vercel.json`](vercel.json) è incluso come esempio funzionante, ma qualsiasi hosting per app Vite/React va bene.
+
 ## Configurazione
 
 Il progetto non funziona senza le proprie chiavi — questo repo non contiene credenziali reali (rimosse dallo snapshot pubblico). Copia `.env.example` in `.env` e compila con un tuo progetto Supabase (obbligatorio) e, opzionalmente, PostHog/Sentry:
