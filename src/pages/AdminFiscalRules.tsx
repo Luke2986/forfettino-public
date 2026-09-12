@@ -176,7 +176,7 @@ export default function AdminFiscalRulesPage() {
 
   return (
     <AppLayout>
-      {isMobile && <MobileHeader title="Parametri Fiscali" showBackButton backPath="/admin" />}
+      {isMobile && <MobileHeader title="Parametri Fiscali" showBackButton backPath="/" />}
       <div className="container max-w-4xl py-6 space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between flex-wrap gap-3">

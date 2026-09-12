@@ -124,7 +124,6 @@ export const supportoParentItem: NavItem = {
 
 // Gruppo ADMIN
 export const adminNavItems: NavItem[] = [
-  { title: "Pannello Admin", url: "/admin", icon: ShieldCheck, section: "admin" },
   { title: "Parametri INPS", url: "/admin/parametri", icon: FileText, section: "admin" },
 ];
 

@@ -170,21 +170,19 @@ describe("AppSidebar — ordine sezioni desktop (AC #1)", () => {
     expect(screen.getByText("Guide per te")).toBeInTheDocument();
 
     // Admin
-    expect(screen.getByText("Pannello Admin")).toBeInTheDocument();
     expect(screen.getByText("Parametri INPS")).toBeInTheDocument();
   });
 
   it("sezione Admin visibile solo per admin", () => {
     setMockUser("free");
     renderSidebar();
-    expect(screen.queryByText("Pannello Admin")).toBeNull();
     expect(screen.queryByText("Parametri INPS")).toBeNull();
   });
 
   it("sezione Admin visibile per admin", () => {
     setMockUser("admin");
     renderSidebar();
-    expect(screen.getByText("Pannello Admin")).toBeInTheDocument();
+    expect(screen.getByText("Parametri INPS")).toBeInTheDocument();
   });
 });
 
@@ -310,7 +308,6 @@ describe("AppSidebar — access control (AC #5)", () => {
     expect(screen.getByText("Comparatore")).toBeInTheDocument();
     expect(screen.getByText("Allocazione")).toBeInTheDocument();
     expect(screen.getByText("Report Fatturato")).toBeInTheDocument();
-    expect(screen.getByText("Pannello Admin")).toBeInTheDocument();
     expect(screen.getByText("Parametri INPS")).toBeInTheDocument();
   });
 

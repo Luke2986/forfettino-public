@@ -63,7 +63,6 @@ const ImpostazioniPage = lazyWithRetry(() => import("./pages/Impostazioni"));
 const FeedbackPage = lazyWithRetry(() => import("./pages/Feedback"));
 const SupportoPage = lazyWithRetry(() => import("./pages/Supporto"));
 const MessaggiPage = lazyWithRetry(() => import("./pages/Messaggi"));
-const AdminPage = lazyWithRetry(() => import("./pages/Admin"));
 const AdminFiscalRulesPage = lazyWithRetry(() => import("./pages/AdminFiscalRules"));
 const GuidePerTePage = lazyWithRetry(() => import("./pages/GuidePerTe"));
 const ClassificaPage = lazyWithRetry(() => import("./pages/Classifica"));
@@ -226,14 +225,6 @@ const App = () => (
                   <ProtectedRoute>
                     <Suspense fallback={null}><SupportoPage /></Suspense>
                   </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin"
-                element={
-                  <AdminProtectedRoute>
-                    <Suspense fallback={null}><AdminPage /></Suspense>
-                  </AdminProtectedRoute>
                 }
               />
               <Route

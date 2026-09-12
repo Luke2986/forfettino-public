@@ -221,14 +221,13 @@ describe("MobileMenuSheet — access control (AC #5)", () => {
     setMockUser("admin");
     renderMobile();
     expect(screen.getByText("Comparatore")).toBeInTheDocument();
-    expect(screen.getByText("Pannello Admin")).toBeInTheDocument();
     expect(screen.getByText("Parametri INPS")).toBeInTheDocument();
   });
 
   it("sezione Admin nascosta per utente non-admin", () => {
     setMockUser("free");
     renderMobile();
-    expect(screen.queryByText("Pannello Admin")).toBeNull();
+    expect(screen.queryByText("Parametri INPS")).toBeNull();
   });
 });
 
