@@ -55,3 +55,15 @@
 **Scelta**: estratte funzioni pure condivise (`computeNetSpendable`, `computeBufferAmount`, `computeMonthlyToolCost`, ecc.) come unica fonte di verità, richiamate da entrambi i punti. Test dedicato ([`net-spendable.test.ts`](src/lib/__tests__/net-spendable.test.ts)).
 
 **Lezione**: se lo stesso numero si calcola in due posti, prima o poi diverge. La domanda giusta non è "dove ho sbagliato" ma "perché esistono due implementazioni".
+
+## 7. Parsing date: mai `new Date("YYYY-MM-DD")`
+
+**Problema**: `new Date("2026-06-15")` (formato date-only) viene interpretato come mezzanotte UTC, non mezzanotte locale. In un fuso positivo (es. CET, UTC+1) questo sposta indietro la data visualizzata di un giorno — una scadenza fiscale del 15 può apparire come 14.
+
+**Alternativa scartata**: usare `new Date(dueDate)` direttamente ovunque servisse una data — più corto, sembra ovvio, e funziona in test scritti/eseguiti in UTC (dove il bug non si manifesta).
+
+**Perché scartata**: il bug non è nel codice che lo introduce ma in dove *non* si manifesta — passa i test in CI (spesso UTC) e rompe in produzione per utenti in fusi orari positivi. Classe di bug silenziosa, non un caso isolato.
+
+**Scelta**: ogni parsing di data-only forza l'orario locale appendendo `T00:00:00` prima di costruire il `Date` — vedi [`schedule-helpers.ts:48,98,105`](src/lib/schedule-helpers.ts#L48), dentro `formatDateIT` e `daysUntil`. Test dedicato che verifica esplicitamente l'assenza di day-shift ([`schedule-helpers.test.ts:81`](src/lib/schedule-helpers.test.ts#L81), `"handles winter date without timezone shift"` a riga 215).
+
+**Lezione**: un bug che sparisce in CI e riappare in produzione non è "flaky" — è un test che gira nello stesso fuso orario del bug che dovrebbe scoprire.
