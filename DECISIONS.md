@@ -1,6 +1,9 @@
 # Decisioni tecniche
 
-`ARCHITECTURE.md` descrive lo stato attuale. Questo file racconta il percorso: il problema, l'alternativa scartata, perché, cosa ne è uscito. Solo decisioni verificabili nel codice o nei test di questo repo — niente ricostruito a posteriori.
+`ARCHITECTURE.md` descrive lo stato attuale.
+Questo file racconta il percorso: il problema, l'alternativa scartata, perché, cosa ne è uscito. 
+Solo decisioni verificabili nel codice o nei test di questo repo — niente ricostruito a posteriori.
+- Queste sono solo alcune delle decisioni prese durante la costruzione -
 
 ## 1. Denaro in centesimi (interi), non float
 
