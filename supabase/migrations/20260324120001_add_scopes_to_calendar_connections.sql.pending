@@ -1,0 +1,13 @@
+-- Epic 53, Story 53-1: Colonna scopes su calendar_connections
+-- PENDENTE: Questa migration va eseguita DOPO Epic 48 Story 48-2 (creazione tabella calendar_connections)
+-- Rinominare questo file rimuovendo .pending quando calendar_connections esiste
+--
+-- Vedi: _bmad-output/implementation-artifacts/53-1-scope-oauth-esteso-tabella-mapping-task.md
+
+ALTER TABLE public.calendar_connections
+  ADD COLUMN IF NOT EXISTS scopes TEXT[] NOT NULL DEFAULT '{}';
+
+-- Backfill: connessioni Google esistenti con solo calendar scope
+UPDATE public.calendar_connections
+  SET scopes = ARRAY['https://www.googleapis.com/auth/calendar.events.readonly']
+  WHERE provider = 'google' AND scopes = '{}';

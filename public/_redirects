@@ -1,0 +1,24 @@
+# Prerendered SEO routes — MUST serve static HTML explicitly.
+# Why: hosting catch-all rewrite below intercepts requests before
+# trailing-slash/index.html resolution, so Googlebot received root index.html
+# (homepage title/meta) for every prerendered route — causing all 20 pages
+# under "Discovered, not indexed" in Search Console (2026-04-27).
+# Order matters: explicit rules win over the SPA fallback.
+
+/calcolatore-forfettario      /calcolatore-forfettario/index.html      200
+/blog                         /blog/index.html                          200
+/blog/:slug                   /blog/:slug/index.html                    200
+/faq                          /faq/index.html                           200
+/glossario                    /glossario/index.html                     200
+/pro-presto                   /pro-presto/index.html                    200
+/privacy-policy               /privacy-policy/index.html                200
+/cookie-policy                /cookie-policy/index.html                 200
+/terms                        /terms/index.html                         200
+/login                        /login/index.html                         200
+/reset-password               /reset-password/index.html                200
+/conferma-email               /conferma-email/index.html                200
+/auth/callback                /auth/callback/index.html                 200
+/bento-demo                   /bento-demo/index.html                    200
+
+# SPA fallback — app routes that have no prerendered HTML.
+/*                            /index.html                               200

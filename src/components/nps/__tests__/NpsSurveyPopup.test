@@ -1,0 +1,152 @@
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { NpsSurveyPopup } from "../NpsSurveyPopup";
+
+// --- Mocks ---
+const mockRpc = vi.fn().mockResolvedValue({ data: true, error: null });
+vi.mock("@/integrations/supabase/client", () => ({
+  supabase: { rpc: (...args: unknown[]) => mockRpc(...args) },
+}));
+
+vi.mock("@/hooks/useAuth", () => ({
+  useAuth: () => ({ user: { id: "user-123" } }),
+}));
+
+vi.mock("@/lib/analytics", () => ({
+  track: vi.fn(),
+}));
+
+function wrapper({ children }: { children: React.ReactNode }) {
+  const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  return <QueryClientProvider client={qc}>{children}</QueryClientProvider>;
+}
+
+function renderPopup(props?: Partial<React.ComponentProps<typeof NpsSurveyPopup>>) {
+  const defaultProps = {
+    onDismiss: vi.fn(),
+    onComplete: vi.fn(),
+    triggerSource: "manual" as const,
+  };
+  return render(<NpsSurveyPopup {...defaultProps} {...props} />, { wrapper });
+}
+
+describe("NpsSurveyPopup", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  // --- Task 6.2: Rendering step 1 ---
+  it("renders step 1 with title, subtitle, anonymity text and score buttons", () => {
+    renderPopup();
+
+    expect(screen.getByText(/Quanto consiglieresti Forfettino/)).toBeInTheDocument();
+    expect(screen.getByText(/La tua risposta .* anonima/i)).toBeInTheDocument();
+    expect(screen.getByText(/\+5pt/)).toBeInTheDocument();
+    expect(screen.getByRole("radiogroup")).toBeInTheDocument();
+    // 11 discrete score buttons (0-10)
+    expect(screen.getAllByRole("radio")).toHaveLength(11);
+    expect(screen.getByRole("button", { name: /avanti/i })).toBeDisabled();
+  });
+
+  // --- Task 6.7: Anonymity text visible ---
+  it("shows 'La tua risposta e' anonima' in step 1", () => {
+    renderPopup();
+    expect(screen.getByText(/La tua risposta .* anonima/i)).toBeInTheDocument();
+  });
+
+  // --- Task 6.3: Score selection → step 2 with contextual question ---
+  it("detrattore (0-6): shows 'Cosa potremmo migliorare?'", () => {
+    renderPopup();
+    fireEvent.click(screen.getByRole("radio", { name: "3" }));
+    fireEvent.click(screen.getByRole("button", { name: /avanti/i }));
+    expect(screen.getByText(/Cosa potremmo migliorare/)).toBeInTheDocument();
+  });
+
+  it("passivo (7-8): shows 'Cosa ci manca per essere un 9?'", () => {
+    renderPopup();
+    fireEvent.click(screen.getByRole("radio", { name: "7" }));
+    fireEvent.click(screen.getByRole("button", { name: /avanti/i }));
+    expect(screen.getByText(/Cosa ci manca per essere un 9/)).toBeInTheDocument();
+  });
+
+  it("promotore (9-10): shows 'Cosa apprezzi di piu'?'", () => {
+    renderPopup();
+    fireEvent.click(screen.getByRole("radio", { name: "10" }));
+    fireEvent.click(screen.getByRole("button", { name: /avanti/i }));
+    expect(screen.getByText(/Cosa apprezzi di pi/)).toBeInTheDocument();
+  });
+
+  // --- Task 6.4: Submit without comment → RPC called, thank-you ---
+  it("submit without comment calls RPCs and shows thank-you", async () => {
+    renderPopup();
+
+    // Step 1: select score
+    fireEvent.click(screen.getByRole("radio", { name: "9" }));
+    fireEvent.click(screen.getByRole("button", { name: /avanti/i }));
+
+    // Step 2: skip comment, click Invia
+    fireEvent.click(screen.getByRole("button", { name: /invia/i }));
+
+    await waitFor(() => {
+      expect(mockRpc).toHaveBeenCalledWith(
+        "record_nps_response",
+        expect.objectContaining({ p_score: 9, p_comment: null }),
+      );
+    });
+
+    await waitFor(() => {
+      expect(mockRpc).toHaveBeenCalledWith("record_nps_survey_contribution");
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText(/Grazie/)).toBeInTheDocument();
+    });
+  });
+
+  // --- Task 6.5: Submit with comment → RPC called with comment ---
+  it("submit with comment passes comment to RPC", async () => {
+    renderPopup();
+
+    fireEvent.click(screen.getByRole("radio", { name: "4" }));
+    fireEvent.click(screen.getByRole("button", { name: /avanti/i }));
+
+    const textarea = screen.getByRole("textbox");
+    fireEvent.change(textarea, { target: { value: "Manca X" } });
+    fireEvent.click(screen.getByRole("button", { name: /invia/i }));
+
+    await waitFor(() => {
+      expect(mockRpc).toHaveBeenCalledWith(
+        "record_nps_response",
+        expect.objectContaining({ p_score: 4, p_comment: "Manca X" }),
+      );
+    });
+  });
+
+  // --- Task 6.6: Close with X → no RPC even after partial interaction ---
+  it("no RPC is called when user selects a score but does not submit", () => {
+    renderPopup();
+
+    // User selects a score (partial interaction)
+    const scoreBtn = screen.getByRole("radio", { name: "3" });
+    fireEvent.click(scoreBtn);
+
+    // Score is selected, but user does NOT click "Avanti" or "Invia"
+    // Parent would call onDismiss via BlockingModal X button — no RPC should have fired
+    expect(mockRpc).not.toHaveBeenCalled();
+  });
+
+  // --- H2 fix: Error feedback on submit failure ---
+  it("shows error message when RPC fails", async () => {
+    mockRpc.mockRejectedValueOnce(new Error("network error"));
+    renderPopup();
+
+    fireEvent.click(screen.getByRole("radio", { name: "8" }));
+    fireEvent.click(screen.getByRole("button", { name: /avanti/i }));
+    fireEvent.click(screen.getByRole("button", { name: /invia/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText(/errore/i)).toBeInTheDocument();
+    });
+  });
+});

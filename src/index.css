@@ -1,0 +1,431 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Forfettino Design System - Calm & Reassuring Palette
+   Primary: Teal (#0F766E)
+   Accent: Indigo
+   Background: Light gray (#F6F7FB)
+*/
+
+@layer base {
+  :root {
+    /* Core Background & Foreground */
+    --background: 228 33% 97%;
+    --foreground: 220 25% 10%;
+
+    /* Card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    /* Primary: Teal */
+    --primary: 173 79% 26%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Light teal */
+    --secondary: 173 35% 93%;
+    --secondary-foreground: 173 79% 20%;
+
+    /* Muted */
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 40%;
+
+    /* Accent: Light Teal (coerente con brand) */
+    --accent: 173 35% 93%;
+    --accent-foreground: 173 79% 20%;
+
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Info */
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* Border & Input */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 173 79% 26%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 25% 10%;
+    --sidebar-primary: 173 79% 26%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 173 35% 95%;
+    --sidebar-accent-foreground: 173 79% 20%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 173 79% 26%;
+
+    /* Chart colors */
+    --chart-1: 173 79% 26%;
+    --chart-2: 239 84% 67%;
+    --chart-3: 142 76% 36%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 199 89% 48%;
+
+    /* ── Dashboard v2 Design Tokens ── */
+    --v2-bg-canvas: 40 18% 96%;
+    --v2-bg-card: 0 0% 100%;
+    --v2-text-primary: 220 20% 12%;
+    --v2-text-secondary: 220 10% 45%;
+    --v2-text-tertiary: 220 8% 48%;
+    --v2-accent-primary: 173 65% 30%;
+    --v2-accent-warm: 35 90% 55%;
+    --v2-border-subtle: 220 15% 92%;
+    --v2-shadow-card: 0 1px 4px hsl(220 20% 12% / 0.06), 0 6px 16px hsl(220 20% 12% / 0.05);
+
+    /* ── Section Nav Colors ── */
+    --nav-dashboard: 173 65% 30%;
+    --nav-dashboard-bg: 173 50% 95%;
+    --nav-gestione: 234 55% 48%;
+    --nav-gestione-bg: 234 60% 96%;
+    --nav-strumenti: 30 75% 40%;
+    --nav-strumenti-bg: 30 70% 96%;
+    --nav-supporto: 220 20% 42%;
+    --nav-supporto-bg: 220 15% 96%;
+    --nav-admin: 350 60% 48%;
+    --nav-admin-bg: 350 60% 96%;
+    --nav-messaggi: 173 65% 30%;
+    --nav-messaggi-bg: 173 50% 95%;
+    --nav-pianificazione: 160 55% 38%;
+    --nav-pianificazione-bg: 160 50% 95%;
+
+    /* ── v2 Spacing & Radii ── */
+    --v2-radius-card: 16px;
+    --v2-radius-inner: 12px;
+    --v2-space-section: 32px;
+    --v2-space-card-padding: 24px;
+    --v2-space-hero-padding: 32px;
+
+    /* ── Squircle Design System (Epic 81) ── */
+    --squircle-smoothing: 0.6;
+    --squircle-radius-sm: 8px;
+    --squircle-radius-md: 12px;
+    --squircle-radius-lg: 16px;
+    --squircle-radius-2xl: 24px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+@layer base {
+  .dark {
+    /* ── shadcn Dark Mode Variables (Landing Page) ── */
+    --background: 222 20% 7%;
+    --foreground: 210 20% 92%;
+
+    --card: 222 18% 11%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 222 18% 11%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 173 65% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 15% 16%;
+    --secondary-foreground: 210 15% 85%;
+
+    --muted: 222 15% 14%;
+    --muted-foreground: 215 12% 55%;
+
+    --accent: 222 15% 16%;
+    --accent-foreground: 210 15% 85%;
+
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 15% 18%;
+    --input: 222 15% 18%;
+    --ring: 173 65% 42%;
+
+    /* ── Dashboard v2 Design Tokens — Dark Mode ── */
+    --v2-bg-canvas: 220 20% 8%;
+    --v2-bg-card: 220 18% 14%;
+    --v2-text-primary: 220 15% 92%;
+    --v2-text-secondary: 220 10% 65%;
+    --v2-text-tertiary: 220 8% 48%;
+    --v2-accent-primary: 173 55% 45%;
+    --v2-accent-warm: 35 85% 60%;
+    --v2-border-subtle: 220 15% 22%;
+    --v2-shadow-card: 0 1px 4px hsl(0 0% 0% / 0.2), 0 6px 16px hsl(0 0% 0% / 0.15);
+
+    --v2-radius-card: 16px;
+    --v2-radius-inner: 12px;
+    --v2-space-section: 32px;
+    --v2-space-card-padding: 24px;
+    --v2-space-hero-padding: 32px;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* ── Task Board: Glass panel effect (Trello-style columns) ── */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.06),
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  }
+
+  /* ── Task Board: Custom horizontal scrollbar ── */
+  .board-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+  }
+  .board-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .board-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+  }
+  .board-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  /* ── Dashboard v2 Typography Roles ── */
+  .v2-typo-hero {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: hsl(var(--v2-text-primary));
+  }
+
+  .v2-typo-hero-sub {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: hsl(var(--v2-text-tertiary));
+  }
+
+  .v2-typo-card-title {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: hsl(var(--v2-text-secondary));
+  }
+
+  .v2-typo-card-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: hsl(var(--v2-text-primary));
+  }
+
+  .v2-typo-body {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: hsl(var(--v2-text-secondary));
+  }
+
+  .v2-typo-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: hsl(var(--v2-text-tertiary));
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .v2-typo-formula {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: hsl(var(--v2-text-secondary));
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── v2 Responsive hero ── */
+  @media (max-width: 640px) {
+    .v2-typo-hero {
+      font-size: 2.25rem;
+    }
+  }
+
+  /* ── Semantic color backgrounds with opacity ── */
+  /* Tailwind hsl() wrapper doesn't support /xx opacity modifier, so we define them manually */
+  .bg-success-muted { background-color: hsl(var(--success) / 0.12); }
+  .bg-warning-muted { background-color: hsl(var(--warning) / 0.12); }
+  .bg-destructive-muted { background-color: hsl(var(--destructive) / 0.12); }
+  .bg-info-muted { background-color: hsl(var(--info) / 0.12); }
+  .border-success-muted { border-color: hsl(var(--success) / 0.25); }
+  .border-warning-muted { border-color: hsl(var(--warning) / 0.25); }
+  .border-destructive-muted { border-color: hsl(var(--destructive) / 0.25); }
+  .border-info-muted { border-color: hsl(var(--info) / 0.25); }
+
+  /* ── Page transition ── */
+  .animate-page-enter {
+    animation: page-enter 120ms ease-out both;
+  }
+  @keyframes page-enter {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Tab scroll fade hint (mobile) ── */
+  .tab-scroll-fade {
+    position: relative;
+  }
+  .tab-scroll-fade::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2rem;
+    background: linear-gradient(to left, hsl(var(--background)), transparent);
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .tab-scroll-fade::after {
+      display: none;
+    }
+  }
+
+  /* ── Demo blur zone (Story 38-1) ── */
+  .demo-blur-zone {
+    filter: blur(6px);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Sidebar blur — moved outside @layer, see below */
+
+  /* ── Scrollbar hide utility (mobile tabs, horizontal scrollers) ── */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ── Sidebar + header blur when demo is active (Story 38-1) ──
+   Outside @layer for maximum specificity.
+   AppSidebar uses collapsible="none" → no data-sidebar/data-side attrs.
+   We add data-app-sidebar on AppSidebar.tsx to target it. */
+html[data-demo-active] [data-app-sidebar] {
+  filter: blur(6px) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+/* ── SpotlightCard: mouse-tracking glow effect (Epic 13) ── */
+/* Wrapper sets --x/--y via JS pointermove.
+   ::before = border-only glow ring ON TOP of card (pointer-events: none).
+   ::after  = soft outer glow BEHIND card extending outside. */
+.spotlight-card {
+  position: relative;
+  isolation: isolate;
+  --x: -9999px;
+  --y: -9999px;
+}
+
+/* Border glow ring — sits ON TOP of card, mask punches out the interior */
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    300px circle at var(--x) var(--y),
+    hsla(var(--base), 0.55),
+    transparent 60%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
+  z-index: 10;
+}
+
+/* Soft outer glow — extends outside card, sits BEHIND it */
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    350px circle at var(--x) var(--y),
+    hsla(var(--spread), 0.12),
+    transparent 65%
+  );
+  z-index: -1;
+}
+
+/* Glow activation: only on devices with hover (mouse/trackpad), not touch */
+@media (hover: hover) {
+  .spotlight-card:hover::before,
+  .spotlight-card:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Reduced-motion: hide glow pseudo-elements entirely (no flash) */
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-card::before,
+  .spotlight-card::after {
+    display: none !important;
+  }
+}
+
+/* ── Accessibility: prefers-reduced-motion (outside @layer for specificity over Tailwind) ── */
+/* Global rule: neutralizes ALL animations & transitions when user prefers reduced motion.
+   Covers shadcn animate-in/out, Tailwind animate-*, custom keyframes — no per-class rules needed. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

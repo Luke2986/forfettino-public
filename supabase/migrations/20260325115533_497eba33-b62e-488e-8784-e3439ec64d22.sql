@@ -1,0 +1,1 @@
+ALTER TABLE public.admin_announcements DROP CONSTRAINT IF EXISTS admin_announcements_target_user_id_fkey;

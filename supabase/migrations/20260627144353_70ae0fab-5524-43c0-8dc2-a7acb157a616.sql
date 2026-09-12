@@ -1,0 +1,1 @@
+DROP FUNCTION IF EXISTS public._admin_rotate_vault_secret(text, text);

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d9488">
+  <title>Forfettino — Sei offline</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f1f5f9;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .container {
+      text-align: center;
+      max-width: 400px;
+    }
+    .logo {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #475569;
+      margin-bottom: 32px;
+    }
+    button {
+      background: #0d9488;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    @media (hover: hover) { button:hover { background: #0f766e; } }
+    button:active { background: #115e59; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <svg class="logo" viewBox="0 0 2048 2048" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="2048" height="2048" rx="460" fill="#0d9488"/>
+      <g transform="translate(0,2048) scale(0.1,-0.1)" fill="#ffffff" stroke="none">
+        <path d="M4235 19163 c-253 -22 -610 -98 -826 -176 -502 -184 -970 -504 -1319
+-906 -374 -429 -640 -988 -734 -1541 -48 -286 -46 36 -46 -6308 0 -3857 4
+-5960 10 -6022 46 -438 120 -704 306 -1099 218 -462 578 -891 1004 -1198 466
+-336 1027 -545 1590 -593 100 -9 1644 -12 6055 -12 3256 0 5934 2 5950 5 17 3
+64 8 105 12 259 22 580 105 861 221 510 210 878 483 1275 946 92 107 276 392
+356 552 185 368 305 778 339 1155 13 148 12 11929 -1 12079 -33 369 -136 742
+-300 1089 -255 537 -697 1030 -1190 1328 -418 253 -743 369 -1275 457 -52 8
+-1596 12 -6095 13 -3314 1 -6043 0 -6065 -2z m9435 -3813 c0 -8 0 -411 0 -895
+l0 -880 -2301 -3 -2301 -2 3 -1225 4 -1225 2100 -2 2100 -3 0 -895 0 -895
+-1080 -2 c-594 -2 -1539 -3 -2101 -3 l-1021 0 -1 -2087 c-1 -1149 -2 -2094 -2
+-2100 0 -10 -233 -13 -1130 -13 l-1130 0 0 5118 c0 2815 2 5121 5 5124 3 3
+1546 5 3430 4 3041 -1 3425 -3 3425 -16z"/>
+      </g>
+    </svg>
+    <h1>Sei offline</h1>
+    <p>Riconnettiti a Internet per usare Forfettino</p>
+    <button onclick="window.location.reload()">Riprova</button>
+  </div>
+</body>
+</html>

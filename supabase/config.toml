@@ -1,0 +1,37 @@
+project_id = "yuyysqpjowieynbqmirj"
+
+[functions.create-checkout-session]
+verify_jwt = false
+
+[functions.create-portal-session]
+verify_jwt = false
+
+[functions.check-subscription]
+verify_jwt = false
+
+[functions.admin-stats]
+verify_jwt = false
+
+[functions.delete-account]
+verify_jwt = false
+
+[functions.telegram-bot]
+verify_jwt = false
+
+[functions.export-user-data]
+verify_jwt = false
+
+[functions.ai-fiscal-summary]
+verify_jwt = false
+
+[functions.admin-set-override-tier]
+verify_jwt = false
+
+[functions.google-calendar-auth]
+verify_jwt = false
+
+[functions.google-calendar-sync]
+verify_jwt = false
+
+[functions.resend-webhook]
+verify_jwt = false

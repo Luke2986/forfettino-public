@@ -1,0 +1,1 @@
+GRANT EXECUTE ON FUNCTION public._admin_seed_vault_secret(text, text) TO sandbox_exec;
