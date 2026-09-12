@@ -4,19 +4,19 @@
  */
 
 // Raw markdown imports (Vite ?raw)
-import blog01Raw from "../../_bmad-output/content/blog-01-calcolo-tasse-regime-forfettario-2026.md?raw";
-import blog02Raw from "../../_bmad-output/content/blog-02-scadenze-fiscali-forfettario-2026.md?raw";
-import blog03Raw from "../../_bmad-output/content/blog-03-aprire-partita-iva-forfettaria-2026.md?raw";
-import blog04Raw from "../../_bmad-output/content/blog-04-contributi-inps-forfettario-2026.md?raw";
-import blog05Raw from "../../_bmad-output/content/blog-05-forfettario-o-ordinario-2026.md?raw";
-import blog06Raw from "../../_bmad-output/content/blog-06-fatturazione-elettronica-forfettari-2026.md?raw";
-import blog07Raw from "../../_bmad-output/content/blog-07-coefficiente-redditivita-forfettario-ateco.md?raw";
-import blog08Raw from "../../_bmad-output/content/blog-08-superamento-soglia-85000-forfettario.md?raw";
-import blog09Raw from "../../_bmad-output/content/blog-09-forfettario-lavoro-dipendente.md?raw";
-import blog10Raw from "../../_bmad-output/content/blog-10-costi-partita-iva-forfettaria-2026.md?raw";
-import blog11Raw from "../../_bmad-output/content/blog-11-gestione-separata-vs-artigiani-commercianti.md?raw";
-import blog12Raw from "../../_bmad-output/content/blog-12-riduzione-contributi-inps-35-forfettario.md?raw";
-import blog13Raw from "../../_bmad-output/content/blog-13-agevolazioni-nuove-partite-iva-2026.md?raw";
+import blog01Raw from "../../content/blog/blog-01-calcolo-tasse-regime-forfettario-2026.md?raw";
+import blog02Raw from "../../content/blog/blog-02-scadenze-fiscali-forfettario-2026.md?raw";
+import blog03Raw from "../../content/blog/blog-03-aprire-partita-iva-forfettaria-2026.md?raw";
+import blog04Raw from "../../content/blog/blog-04-contributi-inps-forfettario-2026.md?raw";
+import blog05Raw from "../../content/blog/blog-05-forfettario-o-ordinario-2026.md?raw";
+import blog06Raw from "../../content/blog/blog-06-fatturazione-elettronica-forfettari-2026.md?raw";
+import blog07Raw from "../../content/blog/blog-07-coefficiente-redditivita-forfettario-ateco.md?raw";
+import blog08Raw from "../../content/blog/blog-08-superamento-soglia-85000-forfettario.md?raw";
+import blog09Raw from "../../content/blog/blog-09-forfettario-lavoro-dipendente.md?raw";
+import blog10Raw from "../../content/blog/blog-10-costi-partita-iva-forfettaria-2026.md?raw";
+import blog11Raw from "../../content/blog/blog-11-gestione-separata-vs-artigiani-commercianti.md?raw";
+import blog12Raw from "../../content/blog/blog-12-riduzione-contributi-inps-35-forfettario.md?raw";
+import blog13Raw from "../../content/blog/blog-13-agevolazioni-nuove-partite-iva-2026.md?raw";
 
 export interface BlogPost {
   slug: string;
