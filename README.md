@@ -75,5 +75,6 @@ npm test
 ## Altro
 
 - [ARCHITECTURE.md](ARCHITECTURE.md) — decisioni tecniche e struttura del codice
+- [docs/design-system.md](docs/design-system.md) — regole UI: gerarchia superfici, palette accessibile (WCAG AA), squircle system
 - [CONTRIBUTING.md](CONTRIBUTING.md) — come contribuire
 - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
