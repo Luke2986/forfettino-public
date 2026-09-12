@@ -24,6 +24,14 @@ Gestionale online per professionisti e freelance in **Regime Forfettario** (L. 1
 - **Backend**: Supabase (Auth, Database, Edge Functions)
 - **Payments**: Stripe
 
+## Configurazione
+
+Il progetto non funziona senza le proprie chiavi — questo repo non contiene credenziali reali (rimosse dallo snapshot pubblico). Copia `.env.example` in `.env` e compila con un tuo progetto Supabase (obbligatorio) e, opzionalmente, PostHog/Sentry:
+
+```sh
+cp .env.example .env
+```
+
 ## Sviluppo locale
 
 ```sh
