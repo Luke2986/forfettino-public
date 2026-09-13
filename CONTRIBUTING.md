@@ -4,7 +4,7 @@ Grazie per l'interesse. Prima di aprire una PR, tieni presente il contesto di qu
 
 ## Cos'è questo repo
 
-Uno snapshot pubblico del codice di Forfettino, rilasciato con licenza MIT a scopo di portfolio e community. **Non è sincronizzato** con il repository privato dove vive il prodotto live: le modifiche qui non arrivano automaticamente in produzione, e le modifiche in produzione non vengono automaticamente riportate qui.
+Uno snapshot pubblico del codice di Forfettino, rilasciato con licenza [PolyForm Noncommercial 1.0.0](LICENSE) a scopo di portfolio e community. **Non è sincronizzato** con il repository privato dove vive il prodotto live: le modifiche qui non arrivano automaticamente in produzione, e le modifiche in produzione non vengono automaticamente riportate qui.
 
 Di conseguenza:
 - Le PR sono benvenute (fix, miglioramenti, idee), ma **non c'è garanzia di merge** — la manutenzione di questo mirror è a discrezione del maintainer e potrebbe non essere costante.

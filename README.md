@@ -1,7 +1,7 @@
 # Forfettino
 
 [![Test](https://github.com/Luke2986/forfettino-public/actions/workflows/test.yml/badge.svg)](https://github.com/Luke2986/forfettino-public/actions/workflows/test.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-blue.svg)](LICENSE)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
@@ -9,7 +9,7 @@
 
 Gestionale online per professionisti e freelance in **Regime Forfettario** (L. 190/2014).
 
-> Snapshot pubblico del codice sorgente, rilasciato con licenza MIT a scopo di portfolio e community. Il prodotto live gira su un repository separato non pubblico; questa copia non riceve gli aggiornamenti automaticamente.
+> Snapshot pubblico del codice sorgente, rilasciato con licenza [PolyForm Noncommercial 1.0.0](LICENSE) a scopo di portfolio e community: puoi leggerlo, modificarlo, forkarlo e ridistribuirlo per scopi non commerciali. Uso commerciale non consentito. Il prodotto live gira su un repository separato non pubblico; questa copia non riceve gli aggiornamenti automaticamente.
 
 ## Perché questo progetto
 
