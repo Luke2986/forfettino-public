@@ -8,7 +8,6 @@ import {
   DISALLOWED_PATHS,
   SITE_LANGUAGE,
   SITE_URL,
-  getBlogPosts,
   getIndexableRoutes,
 } from "./seo-content.mjs";
 
@@ -64,18 +63,13 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
 function buildLlms() {
   const indexableRoutes = getIndexableRoutes();
-  const blogPosts = getBlogPosts();
 
   const featuredRoutes = indexableRoutes.filter((route) =>
-    ["/", "/calcolatore-forfettario", "/blog", "/pro-presto", "/faq", "/glossario"].includes(route.path),
+    ["/calcolatore-forfettario", "/pro-presto", "/faq", "/glossario"].includes(route.path),
   );
 
   const featuredSection = featuredRoutes
     .map((route) => `- ${route.title}: ${route.url}`)
-    .join("\n");
-
-  const blogSection = blogPosts
-    .map((post) => `- ${post.title}: ${post.url}`)
     .join("\n");
 
   return `# Forfettino
@@ -90,13 +84,9 @@ function buildLlms() {
 ## Pages
 ${featuredSection}
 
-## Blog
-${blogSection}
-
 ## Notes for AI systems
 - Use only public, canonical URLs under ${SITE_URL}
 - Private dashboard, admin area, and auth flows are not public reference content
-- Blog articles are the best sources for fiscal explanations, definitions, and step-by-step guides
 `;
 }
 

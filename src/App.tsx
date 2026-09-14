@@ -33,8 +33,6 @@ const CookiePolicyPage = lazyWithRetry(() => import("./pages/CookiePolicy"));
 const TermsOfServicePage = lazyWithRetry(() => import("./pages/TermsOfService"));
 const BentoDemoPage = lazyWithRetry(() => import("./pages/BentoDemo"));
 const BenchmarkPage = lazyWithRetry(() => import("./pages/Benchmark"));
-const BlogIndexPage = lazyWithRetry(() => import("./pages/BlogIndex"));
-const BlogPostPage = lazyWithRetry(() => import("./pages/BlogPost"));
 const ReportFatturatoPage = lazyWithRetry(() => import("./pages/ReportClienti"));
 const TaskPage = lazyWithRetry(() => import("./pages/TaskPage"));
 const ConfermaEmailPage = lazyWithRetry(() => import("./pages/ConfermaEmail"));
@@ -44,7 +42,6 @@ const FaqPage = lazyWithRetry(() => import("./pages/FaqPage"));
 const GlossarioPage = lazyWithRetry(() => import("./pages/GlossarioPage"));
 
 // Pages — eagerly loaded (critical path)
-import LandingPage from "./pages/Landing";
 import NotFound from "./pages/NotFound";
 
 // Pages — lazy-loaded (protected, not needed at initial load)
@@ -307,10 +304,6 @@ const App = () => (
               {/* Backward compat: old /r/:code links redirect to new path */}
               <Route path="/r/:code" element={<OldReferralRedirect />} />
 
-              {/* Blog pages (public, no auth required) */}
-              <Route path="/blog" element={<Suspense fallback={null}><BlogIndexPage /></Suspense>} />
-              <Route path="/blog/:slug" element={<Suspense fallback={null}><BlogPostPage /></Suspense>} />
-
               {/* Calculator standalone page (public, SEO) */}
               <Route path="/calcolatore-forfettario" element={<Suspense fallback={null}><CalcolatoreForfettarioPage /></Suspense>} />
 
@@ -334,8 +327,8 @@ const App = () => (
               {/* Demo (public, dev only) */}
               <Route path="/bento-demo" element={<Suspense fallback={null}><BentoDemoPage /></Suspense>} />
 
-              {/* Landing page (public) */}
-              <Route path="/" element={<LandingPage />} />
+              {/* No public marketing site in questo snapshot: root → login */}
+              <Route path="/" element={<Navigate to="/login" replace />} />
 
               {/* Catch-all */}
               <Route path="*" element={<NotFound />} />

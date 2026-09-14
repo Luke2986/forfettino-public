@@ -51,8 +51,7 @@ export class ErrorBoundary extends Component<Props, State> {
   };
 
   private handleGoHome = () => {
-    // Usa ?stay=1 per evitare redirect loop: Landing non redirige a /dashboard
-    window.location.href = "/?stay=1";
+    window.location.href = "/login";
   };
 
   private handleLogout = async () => {

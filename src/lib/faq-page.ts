@@ -1,7 +1,5 @@
 // Dataset per la pagina pubblica /faq (story 79.9 — highest citation rate format per LLM).
 // Single source of truth per: rendering FaqPage.tsx + FAQPage JSON-LD + prerender statico.
-// NON duplicare letteralmente landing-faq.ts: quelle FAQ sono conversion-oriented (competitor,
-// pensione), queste sono informative pure (regime, INPS, scadenze, ATECO).
 //
 // Regole GEO (skill geo-content-writer):
 // - question: H2 form, >= 8 parole ideale, termina con "?"

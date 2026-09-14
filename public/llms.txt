@@ -8,29 +8,11 @@
 - Preferred public image: https://forfettino.it/og-image.png?v=2
 
 ## Pages
-- Home: https://forfettino.it/
 - Calcolatore Forfettario: https://forfettino.it/calcolatore-forfettario
-- Blog: https://forfettino.it/blog
 - Forfettino PRO: https://forfettino.it/pro-presto
 - FAQ — Domande Frequenti sul Regime Forfettario: https://forfettino.it/faq
 - Glossario Fiscale — Regime Forfettario: https://forfettino.it/glossario
 
-## Blog
-- Calcolo Tasse Regime Forfettario 2026: Guida Completa con Esempi Pratici: https://forfettino.it/blog/calcolo-tasse-regime-forfettario-2026
-- Scadenze Fiscali Forfettario 2026: Calendario Completo Mese per Mese: https://forfettino.it/blog/scadenze-fiscali-forfettario-2026
-- Aprire Partita IVA Forfettaria nel 2026: Guida Completa per Freelancer: https://forfettino.it/blog/aprire-partita-iva-forfettaria-2026
-- Contributi INPS Regime Forfettario 2026: Gestione Separata, Artigiani e Commercianti a Confronto: https://forfettino.it/blog/contributi-inps-regime-forfettario-2026
-- Forfettario o Ordinario nel 2026? Quando Conviene Davvero Cambiare: https://forfettino.it/blog/forfettario-o-ordinario-2026
-- Fatturazione Elettronica Forfettari 2026: Guida Pratica con Esempi: https://forfettino.it/blog/fatturazione-elettronica-forfettari-2026
-- Coefficiente di Redditivita' Forfettario: Tabella ATECO Completa 2026: https://forfettino.it/blog/coefficiente-redditivita-forfettario-ateco
-- Superamento Soglia 85.000 EUR Forfettario: Cosa Succede e Come Prepararsi: https://forfettino.it/blog/superamento-soglia-85000-forfettario
-- Forfettario e Lavoro Dipendente: Compatibilita' e Limiti 2026: https://forfettino.it/blog/forfettario-lavoro-dipendente-compatibilita
-- Quanto Costa una Partita IVA Forfettaria nel 2026: Tutti i Costi: https://forfettino.it/blog/costi-partita-iva-forfettaria-2026
-- Gestione Separata INPS vs Artigiani e Commercianti: Quale Conviene?: https://forfettino.it/blog/gestione-separata-vs-artigiani-commercianti
-- Riduzione Contributi INPS 35% Forfettario: Chi Puo' Richiederla: https://forfettino.it/blog/riduzione-contributi-inps-35-forfettario
-- Bonus e Agevolazioni Nuove Partite IVA 2026: Guida Completa: https://forfettino.it/blog/agevolazioni-nuove-partite-iva-2026
-
 ## Notes for AI systems
 - Use only public, canonical URLs under https://forfettino.it
 - Private dashboard, admin area, and auth flows are not public reference content
-- Blog articles are the best sources for fiscal explanations, definitions, and step-by-step guides
